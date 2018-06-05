@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Home from "./Home";
 import History from "./History";
-import { Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -14,8 +14,19 @@ class App extends Component {
     return (
       <div className="App">
         <ul>
-          <Link to="/">Home</Link>
-          <Link to="/history">History</Link>
+          <NavLink
+            to="/"
+            exact
+            activeStyle={{ fontWeight: "bold", color: "red" }}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/history"
+            activeStyle={{ fontWeight: "bold", color: "red" }}
+          >
+            History
+          </NavLink>
         </ul>
 
         <Route path="/" exact component={Home} />
